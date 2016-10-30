@@ -1,0 +1,9 @@
+<resources>
+    <!--user-facing strings that appear in your app-->
+    <string name="app_name">Pusheen time!</string>
+    <string name="action_settings">Settings</string>
+    <string name="pusheenText">This is pusheen. Pusheen is our
+    friend. Everyone loves pusheen. Will Pusheen let you
+    pet him? Ask him yourself!</string>
+
+</resources>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!---manifest informs the system of the app's requirements
+and it has to exist in order for the Android system to build
+the app-->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.astronautwannabe.nasa.myapplication">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <!--declares an activity that you implement which is part
+        of UI, every activity appears here-->
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
