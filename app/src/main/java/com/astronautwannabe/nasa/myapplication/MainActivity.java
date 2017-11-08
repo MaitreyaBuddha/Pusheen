@@ -56,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
                 // 5:
                 int index = new Random().nextInt(answers.length);
                 mPusheenText.setText(answers[index]);
+                mPusheenImage.setImageResource(R.drawable.pusheenramen);
                 // 6
             }
         });
