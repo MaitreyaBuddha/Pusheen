@@ -26,6 +26,15 @@ public class MainActivity extends AppCompatActivity {
     // Use the Parser class (see docs) since your variables are outside of your main activity.
     @Variable
     public static String welcomeMessage = "Welcome to Leanplum!";
+    @Variable
+    public static Integer foregroundImage = R.drawable.pusheen;
+    @Variable
+    public static Integer backgroundImage = R.drawable.background;
+
+    @Variable
+    public static Integer pusheenRamen = R.drawable.pusheenramen;
+    @Variable
+    public static Integer pusheenFries = R.drawable.pusheenfries;
 
     String answers[] = {"I don't think so", "Ask again later",
             "No.", "Leave BLAh alone", "Pusheen doesn't like you so no"
