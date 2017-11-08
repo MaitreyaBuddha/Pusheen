@@ -100,7 +100,11 @@ public class MainActivity extends AppCompatActivity {
         Leanplum.addVariablesChangedHandler(new VariablesChangedCallback() {
             @Override
             public void variablesChanged() {
-                Log.i("Test", welcomeMessage);
+                Log.i("otherString", otherString);
+                Log.i("title", title);
+                Log.i("backgroundImage","" +  backgroundImage);
+                Log.i("foregroundImage","" +  foregroundImage);
+                setForeground(foregroundImage);
             }
         });
 
@@ -117,7 +121,8 @@ public class MainActivity extends AppCompatActivity {
                 try {
                     while (true) {
                         Thread.sleep(300);
-                        System.out.println(welcomeMessage);
+                        // Be sure to set the context to this in the Parser.
+                        Parser.parseVariables(this);
                         Leanplum.syncResources();
                     }
                 } catch (InterruptedException e) {
