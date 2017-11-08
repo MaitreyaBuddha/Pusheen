@@ -3,7 +3,24 @@
 and it has to exist in order for the Android system to build
 the app-->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.astronautwannabe.nasa.myapplication">
+
+    <uses-sdk
+        android:minSdkVersion="10"
+        tools:overrideLibrary="com.leanplum, com.google.android.gms"/>
+
+    <!-- These permissions are required only for push notifications. -->
+
+    <!-- GCM requires a Google account (necessary only if if the device is running a version lower than Android 4.0.4). -->
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+
+    <!-- Optional. Prevents the device from sleeping when a message is received. -->
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+
+    <!-- These permissions are required only for geofencing. -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
 
     <application
         android:allowBackup="true"
@@ -12,6 +29,10 @@ the app-->
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
         <!--declares an activity that you implement which is part
         of UI, every activity appears here-->
         <activity
@@ -19,6 +40,9 @@ the app-->
             android:screenOrientation="portrait"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="com.google.android.gms.version"
+                android:value="@integer/google_play_services_version" />
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
