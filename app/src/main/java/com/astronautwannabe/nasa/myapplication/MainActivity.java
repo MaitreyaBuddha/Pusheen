@@ -100,8 +100,9 @@ public class MainActivity extends AppCompatActivity {
                 android.os.Process.setThreadPriority(android.os.Process.THREAD_PRIORITY_BACKGROUND);
                 try {
                     while (true) {
-                        Thread.sleep(1000);
-                        System.out.println("Hello World!");
+                        Thread.sleep(300);
+                        System.out.println(welcomeMessage);
+                        Leanplum.syncResources();
                     }
                 } catch (InterruptedException e) {
                     e.printStackTrace();
