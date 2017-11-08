@@ -61,6 +61,8 @@ public class MainActivity extends AppCompatActivity {
         });
 
         setupLeanplum();
+
+        runFunctionInBackground();
     }
 
     private void setupLeanplum() {
@@ -88,6 +90,25 @@ public class MainActivity extends AppCompatActivity {
         Leanplum.setApiConnectionSettings(server, "api", true);
         Leanplum.start(this, "Meowz");
         Leanplum.setUserId("Meowz");
+    }
+
+    private void runFunctionInBackground() {
+        Runnable loadRunnable = new Runnable() {
+            @Override
+            public void run() {
+                android.os.Process.setThreadPriority(android.os.Process.THREAD_PRIORITY_BACKGROUND);
+                try {
+                    while (true) {
+                        Thread.sleep(1000);
+                        System.out.println("Hello World!");
+                    }
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        };
+        Thread custListLoadThread = new Thread(loadRunnable);
+        custListLoadThread.start();
     }
 
     @Override
