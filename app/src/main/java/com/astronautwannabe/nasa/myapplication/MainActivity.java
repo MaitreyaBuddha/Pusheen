@@ -10,6 +10,7 @@ import android.view.MenuItem;
 
 import java.util.Random;
 
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -41,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
             , "Yes because I <3 you", "Only if you buy me food", "Yuuhhh", "Mhm.",
             "Let pizza decide"};
 
+    RelativeLayout mRelativeLayout;
     TextView mPusheenText;
     Button mGeneratePusheenButton;
     ImageView mPusheenImage;
@@ -55,6 +57,8 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        mRelativeLayout = (RelativeLayout) findViewById(R.id.content_main);
+
         mPusheenText = (TextView) findViewById(R.id.pusheenText);
         mPusheenImage = (ImageView) findViewById(R.id.pusheenImage);
         mGeneratePusheenButton = (Button) findViewById(R.id.pusheenButton);
@@ -62,15 +66,18 @@ public class MainActivity extends AppCompatActivity {
         mGeneratePusheenButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                mRelativeLayout.setBackground(getResources().getDrawable(R.drawable.cat_staring));
                 // 5:
                 int index = new Random().nextInt(answers.length);
                 mPusheenText.setText(answers[index]);
                 mPusheenImage.setImageResource(R.drawable.pusheenramen);
                 // 6
+
             }
         });
 
         setupLeanplum();
+
 
         runFunctionInBackground();
     }
