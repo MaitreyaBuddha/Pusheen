@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setupLeanplum() {
-        String server = "kelly-dot-java-api-dot-leanplum-staging.appspot.com";
+        String server = "leanplum-staging.appspot.com";
         String appID = "app_N59g6QL2dVfbcEiih1tgrcItbrjipxdheGZ3AHBci2w";
         String dbgKey = "dev_BnjHjeJa4M3MIC0hVwKHr4Wh3AfhimhHDBCNgBZfOPw";
         Leanplum.setAppIdForDevelopmentMode(appID, dbgKey);
