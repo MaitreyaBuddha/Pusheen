@@ -26,16 +26,18 @@ public class MainActivity extends AppCompatActivity {
     // All variables must be defined before calling Leanplum.start.
     // Use the Parser class (see docs) since your variables are outside of your main activity.
     @Variable
-    public static String welcomeMessage = "Welcome to Leanplum!";
+    public static String title = "Welcome to Leanplum!";
     @Variable
-    public static Integer foregroundImage = R.drawable.pusheen;
+    public static String otherString = "Welcome to XX!";
     @Variable
-    public static Integer backgroundImage = R.drawable.background;
+    public static String foregroundImage = String.valueOf(R.drawable.pusheen);
+    @Variable
+    public static String backgroundImage = String.valueOf(R.drawable.cat_staring);
 
     @Variable
-    public static Integer pusheenRamen = R.drawable.pusheenramen;
+    public static String pusheenRamen = String.valueOf(R.drawable.pusheenramen);
     @Variable
-    public static Integer pusheenFries = R.drawable.pusheenfries;
+    public static String pusheenFries = String.valueOf(R.drawable.pusheenfries);
 
     String answers[] = {"I don't think so", "Ask again later",
             "No.", "Leave BLAh alone", "Pusheen doesn't like you so no"
@@ -70,14 +72,13 @@ public class MainActivity extends AppCompatActivity {
                 // 5:
                 int index = new Random().nextInt(answers.length);
                 mPusheenText.setText(answers[index]);
-                mPusheenImage.setImageResource(R.drawable.pusheenramen);
+                setForeground(foregroundImage);
                 // 6
 
             }
         });
 
         setupLeanplum();
-
 
         runFunctionInBackground();
     }
@@ -105,6 +106,7 @@ public class MainActivity extends AppCompatActivity {
                 Log.i("backgroundImage","" +  backgroundImage);
                 Log.i("foregroundImage","" +  foregroundImage);
                 setForeground(foregroundImage);
+                setBackground(backgroundImage);
             }
         });
 
@@ -132,6 +134,14 @@ public class MainActivity extends AppCompatActivity {
         };
         Thread custListLoadThread = new Thread(loadRunnable);
         custListLoadThread.start();
+    }
+
+    private  void setForeground(String value) {
+        mPusheenImage.setImageResource(Integer.valueOf(value));
+    }
+
+    private  void setBackground(String value) {
+        mRelativeLayout.setBackground(getResources().getDrawable(Integer.valueOf(value)));
     }
 
     @Override
