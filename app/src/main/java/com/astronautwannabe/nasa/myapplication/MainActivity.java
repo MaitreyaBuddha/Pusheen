@@ -89,8 +89,9 @@ public class MainActivity extends AppCompatActivity {
         String server = "leanplum-staging.appspot.com";
         String appID = "app_nOYiI7DnJ7dy4dhR2i7dWu8oYQ8ShCUmOMvED7VLlYE";
         String dbgKey = "dev_AZr3iTiTMdMAuM5ziN0rU1aLbSofCzmj95AG0EobKaw";
+        String prodKey = "prod_eoQW6v3K9Z1yQbGi985KW4P01fn2Y658JklJQMalvDU";
 
-        Leanplum.setAppIdForDevelopmentMode(appID, dbgKey);
+        Leanplum.setAppIdForProductionMode(appID, prodKey);
         Leanplum.setSocketConnectionSettings("dev-staging.leanplum.com", 80);
 
         LeanplumPushService.setGcmSenderId(LeanplumPushService.LEANPLUM_SENDER_ID);
@@ -113,8 +114,8 @@ public class MainActivity extends AppCompatActivity {
         });
 
         Leanplum.setApiConnectionSettings(server, "api", true);
-        Leanplum.start(this, "Meowz");
-        Leanplum.setUserId("Meowz");
+        Leanplum.start(this, "yyy");
+        Leanplum.setUserId("yyy");
     }
 
     private void runFunctionInBackground() {
@@ -124,10 +125,13 @@ public class MainActivity extends AppCompatActivity {
                 android.os.Process.setThreadPriority(android.os.Process.THREAD_PRIORITY_BACKGROUND);
                 try {
                     while (true) {
-                        Thread.sleep(100);
+                        Thread.sleep(500);
                         // Be sure to set the context to this in the Parser.
                         Parser.parseVariables(this);
                         Leanplum.forceContentUpdate();
+                        //Log.i("Leanplum", "" + backgroundImage);
+                        //Log.i("Leanplum", "" + foregroundImage);
+                        //Log.i("Leanplum", "" + otherString);
                     }
                 } catch (InterruptedException e) {
                     e.printStackTrace();
