@@ -127,7 +127,6 @@ public class MainActivity extends AppCompatActivity {
                         Thread.sleep(100);
                         // Be sure to set the context to this in the Parser.
                         Parser.parseVariables(this);
-                        Leanplum.syncResources();
                         Leanplum.forceContentUpdate();
                     }
                 } catch (InterruptedException e) {
