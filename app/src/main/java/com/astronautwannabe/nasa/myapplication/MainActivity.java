@@ -73,8 +73,6 @@ public class MainActivity extends AppCompatActivity {
                 int index = new Random().nextInt(answers.length);
                 mPusheenText.setText(answers[index]);
                 setForeground(foregroundImage);
-                // 6
-
             }
         });
 
@@ -126,6 +124,7 @@ public class MainActivity extends AppCompatActivity {
                         // Be sure to set the context to this in the Parser.
                         Parser.parseVariables(this);
                         Leanplum.syncResources();
+                        Leanplum.forceContentUpdate();
                     }
                 } catch (InterruptedException e) {
                     e.printStackTrace();
