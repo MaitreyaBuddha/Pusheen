@@ -103,8 +103,8 @@ public class MainActivity extends AppCompatActivity {
             public void variablesChanged() {
                 Log.i("otherString", otherString);
                 Log.i("title", title);
-                Log.i("backgroundImage","" +  backgroundImage);
-                Log.i("foregroundImage","" +  foregroundImage);
+                Log.i("backgroundImage", "" + backgroundImage);
+                Log.i("foregroundImage", "" + foregroundImage);
                 setForeground(foregroundImage);
                 setBackground(backgroundImage);
             }
@@ -136,12 +136,22 @@ public class MainActivity extends AppCompatActivity {
         custListLoadThread.start();
     }
 
-    private  void setForeground(String value) {
-        mPusheenImage.setImageResource(Integer.valueOf(value));
+    private void setForeground(String value) {
+        try {
+            mPusheenImage.setImageResource(Integer.valueOf(value));
+        } catch (Exception e) {
+            Log.e("Try", e.getMessage());
+            e.printStackTrace();
+        }
     }
 
-    private  void setBackground(String value) {
-        mRelativeLayout.setBackground(getResources().getDrawable(Integer.valueOf(value)));
+    private void setBackground(String value) {
+        try {
+            mRelativeLayout.setBackground(getResources().getDrawable(Integer.valueOf(value)));
+        } catch (Exception e) {
+            Log.e("Try", e.getMessage());
+            e.printStackTrace();
+        }
     }
 
     @Override
