@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
     @Variable
     public static String foregroundImage = String.valueOf(R.drawable.pusheen);
     @Variable
-    public static String backgroundImage = String.valueOf(R.drawable.cat_staring);
+    public static String backgroundImage = String.valueOf(R.drawable.grasslands);
 
     @Variable
     public static String pusheenRamen = String.valueOf(R.drawable.pusheenramen);
@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
         mGeneratePusheenButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mRelativeLayout.setBackground(getResources().getDrawable(R.drawable.cat_staring));
+                mRelativeLayout.setBackground(getResources().getDrawable(R.drawable.grasslands));
                 // 5:
                 int index = new Random().nextInt(answers.length);
                 mPusheenText.setText(answers[index]);
