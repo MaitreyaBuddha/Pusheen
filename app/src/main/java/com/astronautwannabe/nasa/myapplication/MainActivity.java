@@ -122,7 +122,7 @@ public class MainActivity extends AppCompatActivity {
                 android.os.Process.setThreadPriority(android.os.Process.THREAD_PRIORITY_BACKGROUND);
                 try {
                     while (true) {
-                        Thread.sleep(300);
+                        Thread.sleep(100);
                         // Be sure to set the context to this in the Parser.
                         Parser.parseVariables(this);
                         Leanplum.syncResources();
