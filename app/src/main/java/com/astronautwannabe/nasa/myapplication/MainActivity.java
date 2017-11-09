@@ -38,6 +38,10 @@ public class MainActivity extends AppCompatActivity {
     public static String pusheenRamen = String.valueOf(R.drawable.pusheenramen);
     @Variable
     public static String pusheenFries = String.valueOf(R.drawable.pusheenfries);
+    @Variable
+    public static String pusheen = String.valueOf(R.drawable.pusheen);
+    @Variable
+    public static String dog = String.valueOf(R.drawable.dog);
 
     String answers[] = {"I don't think so", "Ask again later",
             "No.", "Leave BLAh alone", "Pusheen doesn't like you so no"
